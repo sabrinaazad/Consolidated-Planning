@@ -1,0 +1,382 @@
+/************************************************************************/
+/*********************** GLOBAL DEFAULTS & RESETS ***********************/
+/************************************************************************/
+
+:root {
+    --body-font: MontserratRegular, Helvetica, Arial, sans-serif;
+    --heading-font: serif;
+    --section-padding: 1rem;
+    --link-color-example: black;
+    font-size: $mainFontSize;
+}
+
+@include tablet {
+    :root {
+        --section-padding: 2rem;
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+*:focus,
+*:active {
+  outline: none;
+}
+
+
+html {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+}
+
+body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    font-family: MontserratRegular, Helvetica, Arial, sans-serif;
+    font-size: 4.27vw;
+    background-color: $white;
+    color: $baseColor;
+    position: relative;
+    overflow-x: hidden;
+    scroll-behavior: smooth; 
+    @include tablet {
+    	font-size: $mainFontSize;
+    }
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: span,serif;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.25;
+    margin: 0.25em 0;
+    color: $primary;
+}
+h1 {
+	font-size: 2em;
+    @include tablet {
+        font-size: 2.5em;
+    }
+}
+h2 {
+	font-size: 1.75em;
+    @include tablet {
+        font-size: 2em;
+    }
+}
+h3 {
+	font-size: 1.5em;
+    @include tablet {
+        font-size: 1.75em;
+    }
+}
+h4 {
+	font-size: 1.25em;
+    @include tablet {
+        font-size: 1.5em;
+    }
+}
+p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: $baseColor;
+    transition: 0.25s;
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+        color: $darkblue;
+    }
+    &:active {
+        color: $darkblue;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+/************************************************************************/
+/***************************** GLOBAL CLASSES ***************************/
+/************************************************************************/
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.align--center {
+    text-align: center;
+}
+
+.align--left {
+    text-align: left;
+}
+
+.align--right {
+    text-align: right;
+}
+
+.subheading {
+	font-family: MontserratSemiBold;
+    text-transform: uppercase;
+    font-size: 1.25em;
+}
+
+.heading {
+	font-family: span,serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.85em;
+    position: relative;
+    @include tablet {
+        font-size: 2em;
+    }
+}
+.small {
+    font-size: 0.65em;
+    display: block;
+}
+.border-bottom {
+    &::after {
+        content: " ";
+        width: 90%;
+        height: 0.1em;
+        position: relative;
+        background-color: $secondary;
+        bottom: 0;
+        left: 5%;
+        display: block;
+        margin: 1em 0;
+        @include tablet {
+            width: 30%;
+            left: 35%;
+        }
+    }
+    &.left-aligned {
+        &::after {   
+            @include tablet {
+                width: 50%;
+                left: 0;
+            }
+        }
+    }
+}
+.section {
+    width: 100%;
+    max-width: 1180px;
+    padding: 4em 1em;
+    margin: 0 auto;
+    position: relative;
+    @include tablet {
+        padding: 4em 2em;
+    }
+}
+
+.section-wrapper {
+    max-width: 1180px;
+	margin: 0 auto;
+    z-index: 1;
+    position: relative;
+}
+
+.image-wrapper {
+    width: var(--image-width, auto);
+    height: var(--image-height, auto);
+    margin: 0 auto;
+}
+
+.btn {
+    font-family: MontserratBold; 
+    font-size: 1em;
+    padding: 0.5em 2.5em;
+    margin: 0.5em 0;
+    transition: 0.25s;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 100%;
+    @include borderRadius();
+    @include dropShadow();
+    @include tablet {
+        min-width: 18em;
+    }
+}
+
+.btn-primary {	
+	background-color: $secondary;
+    border: 0.2em solid $secondary;
+    color: $white;
+    &:hover {
+        background-color: $primary;
+        border: 0.2em solid $primary;
+        color: $white;
+    }
+}
+
+.btn-secondary {
+    background-color: $white;
+    border: 0.1em solid $primary;
+    color: $primary;  
+    &:hover {
+        background-color: $secondary;
+        border: 0.1em solid $secondary;
+        color: $white;
+    }
+}
+
+.back-btn {
+    cursor: pointer;
+    display: block;
+    margin: 1em 0;
+    border: 0;
+    background: 0;
+    font-family: inherit;
+    text-decoration: underline;
+    padding: 0;
+    color: $primary;
+}
+
+.blue-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $primary;
+    opacity: 0.67;
+    z-index: 0;
+}
+.white-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    opacity: 0.67;
+    z-index: 0;
+}
+/******************* HELPERS *********************/
+
+.desktop-only {
+    display: none;
+    @include tablet {
+        display: block;
+    }
+}
+
+.mobile-only {
+    display: block;
+    @include tablet {
+        display: none;
+    }
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+.no-padded-sides {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.no-padded-top {
+    padding-top: 0;
+}
+
+.no-padded-bottom {
+    padding-bottom: 0;
+}
+
+.bold, 
+.bold a {
+    font-family: MontserratBold!important;
+}
+
+.gray-bg {
+    background-color: $lightergray;
+}
+/******************* NATIVE PAGES *********************/
+.section.error {
+    @include tablet {
+        min-height: calc(100vh - 400px);
+    }
+}
+
+
+//BLOG SIDEBAR CATEGORY LIST STYLE EDITS
+.wp-block-categories-list.wp-block-categories,  
+.wp-block-archives-list.wp-block-archives {
+    list-style: none;
+    padding-left: 0;
+
+}
+.wp-block-latest-posts.wp-block-latest-posts__list li, 
+.wp-block-categories-list.wp-block-categories li {
+    margin: 0.5em 0;
+}
+/******************* SLICK SLIDER *********************/
+.slick-slider {
+    .slick-track {
+        display: flex;
+        .slick-slide {
+            display: flex;
+            height: auto;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1em;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .slick-dots  {
+        bottom: -3em;
+        li {
+            button:before {
+                color: $white;
+                opacity: 1;
+                font-size: 15px;
+            }
+            &.slick-active {
+                button:before {
+                    color: $secondary; 
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

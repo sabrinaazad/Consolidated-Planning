@@ -1,0 +1,120 @@
+/************************************************************************/
+/**************************** FOOTER STYLES *****************************/
+/************************************************************************/
+
+.footer {
+    background-color: $primary;
+    @include desktop {
+        .section {
+            padding-bottom: 2em;
+        }
+    }
+    
+    .utility-container {
+        @include tablet {
+            display: flex;
+        }
+        .logo-container {
+            width: 15em;
+            margin: 0 auto;
+            @include tablet {
+                margin: unset;
+                flex-basis: 33%;
+                img {
+                    max-width: 15em;
+                }
+            }
+            @include desktop {
+                flex-basis: 20%;
+            }
+        }
+        .menu-container {
+            .footer-nav {
+                padding-left: 0;
+                list-style-type: none;
+                text-align: center;
+                li {
+                    padding: 1em 0;
+                    a {
+                        color: $white;
+                        &:hover {
+                            color: $secondary;
+                        }
+                    }
+                    &.btn {
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 0;
+                        width: 10em;
+                        height: 2.5em;
+                        min-width: 10em;
+                        a {
+                            color: $primary;
+                        }
+                        &:hover {
+                            background-color: $secondary;
+                            a {
+                                color: $white;
+                             }
+                        }
+                    }
+                }
+                &.footer-nav-1 {
+                    margin-bottom: 0;
+                    @include desktop {
+                        flex-basis: 40%;      
+                        li {
+                            flex-basis: 50%;
+                        }
+                    }
+                }
+                &.footer-nav-2 {
+                    margin-top: 0;
+                    @include desktop {
+                        flex-basis: 60%;
+                        justify-content: space-evenly;
+                        li {
+                            margin: 0 0.5em;
+                        }
+                    }
+                }
+                @include tablet {
+                    flex-basis: 50%;
+                }
+                @include desktop {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 0;
+                }
+            }
+            @include tablet {
+                flex-basis: 66%;
+                display: flex;
+                align-items: baseline;
+            }
+            @include desktop {
+                flex-basis: 80%;
+                align-items: center;
+            }
+        }
+    }
+    .info-container {
+        color: $white;
+        text-align: center;
+        font-size: 0.75em;
+        a {
+            color: $white;
+            &:hover {
+                color: $secondary;
+            }
+        }
+        @include desktop {
+            margin-top: 3em;
+            border-top: 1px solid $darkblue;
+            .info-block {
+                margin-top: 2em;
+            }
+        }
+    }
+}
